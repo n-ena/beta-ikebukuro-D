@@ -31,15 +31,16 @@
     </div>
     <!-- タイトルエリア　ここまで -->
     <div id="stage">
-      <!-- STAGE1 監視カメラ停止 ここから -->
+      <!-- STAGE1 ドア解錠 ここから -->
       <div id="sectionStage1" class="stage">
         <!-- STAGE1問題セクション　ここから -->
         <section class="section">
           <div class="container">
             <h2 class="section-title section-title--keycolorlight"><span class="section-title__stage">STAGE：1</span>さぁゲームを始めよう！</h2>
-            <p class="text-center"仲間がテロ組織のアジトの前に辿り着いたようだ。<br>
-            だが、入り口の前には監視カメラがあるようだ。<br>
-            そこで私は監視カメラを遠隔で停止させ、ドアの鍵を解除する必要がある。
+            <p class="text-center">仲間がテロ組織のアジトの前に辿り着いたようだ。<br>
+              潜入しようとするも5色の鍵がかかっている。<br>
+              また、近くには5つのボタンがある。<br>
+              扉はボタンを正しい順番で押すことで全ての鍵が解除できるようだ。
             </p>
             <p class="text-center">困ったときは、ヒントがある。なるべく見ないようにゲームを進めていこう。</p>
             <div class="youtube__container">
@@ -55,14 +56,15 @@
         <!-- STAGE1解答入力セクション　ここから -->
         <section class="section bg-color--keycolor">
           <div class="container">
-            <h2 class="section-title"><span class="section-title__stage">STAGE：1</span>キーワードを入力</h2>
             <div class="answer">
-              <input class="answer__1word" type="text" v-model="stage1" placeholder="PASSWORD">
+              <input type="number" v-model="stage101" placeholder="①を入力" min="1" max="5"> の <input type="number" v-model="stage102" placeholder="②を入力" min="1" max="5"> は <input type="number" v-model="stage103" placeholder="③を入力" min="1" max="5"> である。
+            </div>
+            <div class="answer">
+              <input type="number" v-model="stage104" placeholder="④を入力" min="1" max="5"> することで <input type="number" v-model="stage105" placeholder="⑤を入力" min="1" max="5"> をすることができる！
             </div>
             <p class="err-message">{{ stage1Message }}</p>
-            <button v-on:click="stage1AnswerInput(stage1)">送信</button>
-            <img src="???" alt="謎">
-            <a class="link-hint" href="hint.html#stage1" target="hint">ヒントをみる ></a>
+            <button v-on:click="stage1AnswerInput(stage101, stage102, stage103, stage104, stage105)">送信</button>
+            <a class="link-hint" href="hint.html#stage1" target="hint">ヒントをみる ></a>　
           </div>
         </section>
         <!-- STAGE1解答入力セクション　ここまで -->
@@ -70,10 +72,8 @@
         <section v-if="stage1Answer" v-bind:class="{isClear:stage1Answer}" class="section section--clear bg-color--gray">
           <div class="container">
             <div class="clear-message">
-              <div class="clear-message__title">STAGE：１  クリア！</div>
-              <div class="clear-message__content">家庭科室の扉が開いた！<br>
-                さぁ先生を助けるため<br>
-                ３つステージの謎をとき、暗号を見つけ出そう！</div>
+              <div class="clear-message__title">STAGE：1  クリア！</div>
+              <div class="clear-message__content">アジトの扉を開けることに成功した！</div>
               <button v-on:click="stage1NextStage" onclick="location.href='#sectionStage2'" class="clear-message__btn btn">次のステージへ<svg class="btn__arrow"><use xlink:href="#arrow"></use></svg></button>
             </div>
           </div>
@@ -81,7 +81,52 @@
         <!-- STAGE1クリア画面　ここまで -->
       </div>
       <!-- STAGE1　ここまで -->
-      <!-- STAGE2 鍵開けここから -->
+      <!-- STAGE2 部屋特定 ここから -->
+      <div id="sectionStage2" class="stage">
+        <!-- STAGE2問題セクション　ここから -->
+        <section class="section">
+          <div class="container">
+            <h2 class="section-title section-title--keycolorlight"><span class="section-title__stage">STAGE：2</span>さぁゲームを始めよう！</h2>
+            <p class="text-center">テロ予定の情報はオフィスにあるようだ。<br>
+              アジト内の地図を手に入れることができたが、<br>
+              車庫と倉庫の場所しかわからなかった。<br>
+              事前情報により、これらのことがわかっている。
+            </p>
+            <!-- ul + li で情報渡せばいいんじゃない -->
+            <p class="text-center">困ったときは、ヒントがある。なるべく見ないようにゲームを進めていこう。</p>
+          </div>
+        </section>
+        <!-- STAGE2問題セクション　ここまで -->
+        <!-- STAGE2解答入力セクション　ここから -->
+        <section class="section bg-color--keycolor">
+          <div class="container">
+            <h2 class="section-title"><span class="section-title__stage">STAGE：2</span>キーワードを入力</h2>
+            <div class="answer">
+              <input class="answer__1word" type="text" v-model="stage1" placeholder="ROOM?">
+            </div>
+            <p class="err-message">{{ stage2Message }}</p>
+            <button v-on:click="stage2AnswerInput(stage2)">送信</button>
+            <img src="???" alt="謎">
+            <a class="link-hint" href="hint.html#stage2" target="hint">ヒントをみる ></a>
+          </div>
+        </section>
+        <!-- STAGE2解答入力セクション　ここまで -->
+        <!-- STAGE2クリア画面　ここから -->
+        <section v-if="stage2Answer" v-bind:class="{isClear:stage2Answer}" class="section section--clear bg-color--gray">
+          <div class="container">
+            <div class="clear-message">
+              <div class="clear-message__title">STAGE：2  クリア！</div>
+              <div class="clear-message__content">無事オフィスにたどり着けたようだ！<br>
+                USBメモリーが机に置いてある！
+              </div>
+              <button v-on:click="stage2NextStage" onclick="location.href='#sectionStage3'" class="clear-message__btn btn">次のステージへ<svg class="btn__arrow"><use xlink:href="#arrow"></use></svg></button>
+            </div>
+          </div>
+        </section>
+        <!-- STAGE2クリア画面　ここまで -->
+      </div>
+      <!-- STAGE2　ここまで -->
+      <!-- STAGE2だったもの 未使用ここから --
       <div v-if="stage1Clear" id="sectionStage2" class="stage">
         <section class="section">
           <div class="container">
@@ -94,14 +139,14 @@
             <div class="stage-column__container section bg-color--gray">
               <div class="container">
                 <div class="row">
-                  <!-- STAGE201　上左　ここから -->
+                  <!-- STAGE201　上左　ここから --
                   <div class="col-2">
-                    <!-- STAGE201問題セクション　ここから -->
+                    <!-- STAGE201問題セクション　ここから --
                     <figure class="image__container">
                       <img src="assets/images/stage.png" alt="">
                     </figure>
-                    <!-- STAGE201問題セクション　ここまで -->
-                    <!-- STAGE201解答入力セクション　ここから -->
+                    <!-- STAGE201問題セクション　ここまで --
+                    <!-- STAGE201解答入力セクション　ここから --
                     <div class="answer__container">
                       <div class="answer">
                         <input class="answer__incolumn" type="text" v-model="stage201" placeholder="ここに答えを入力しよう">
@@ -111,17 +156,17 @@
                       <p v-if="stage201Message === okMessage" class="err-message">{{ stage201Message }}</p>
                       <a class="link-hint" href="hint.html#stage2" target="hint">ヒントをみる ></a>
                     </div>
-                    <!-- STAGE201解答入力セクション　ここまで -->
+                    <!-- STAGE201解答入力セクション　ここまで --
                   </div>
-                  <!-- STAGE201　上左　ここまで -->
-                  <!-- STAGE202　上右　ここから -->
+                  <!-- STAGE201　上左　ここまで --
+                  <!-- STAGE202　上右　ここから --
                   <div class="col-2">
-                    <!-- STAGE202問題セクション　ここから -->
+                    <!-- STAGE202問題セクション　ここから --
                     <figure class="image__container">
                       <img src="assets/images/stage.png" alt="">
                     </figure>
-                    <!-- STAGE202問題セクション　ここまで -->
-                    <!-- STAGE202解答入力セクション　ここから -->
+                    <!-- STAGE202問題セクション　ここまで --
+                    <!-- STAGE202解答入力セクション　ここから --
                     <div class="answer__container">
                       <div class="answer">
                         <input class="answer__incolumn" type="text" v-model="stage202" placeholder="ここに答えを入力しよう">
@@ -131,23 +176,23 @@
                       <p v-if="stage202Message === okMessage" class="err-message">{{ stage202Message }}</p>
                       <a class="link-hint" href="hint.html#stage2" target="hint">ヒントをみる ></a>
                     </div>
-                    <!-- STAGE202解答入力セクション　ここまで -->
+                    <!-- STAGE202解答入力セクション　ここまで --
                   </div>
-                  <!-- STAGE202　上右　ここまで -->
+                  <!-- STAGE202　上右　ここまで --
                 </div>
               </div>
             </div>
             <div class="stage-column__container section bg-color--gray">
               <div class="container">
                 <div class="row">
-                  <!-- STAGE203　下左　ここから -->
+                  <!-- STAGE203　下左　ここから --
                   <div class="col-2">
-                    <!-- STAGE203問題セクション　ここから -->
+                    <!-- STAGE203問題セクション　ここから --
                     <figure class="image__container">
                       <img src="assets/images/stage.png" alt="">
                     </figure>
-                    <!-- STAGE203問題セクション　ここまで -->
-                    <!-- STAGE203解答入力セクション　ここから -->
+                    <!-- STAGE203問題セクション　ここまで --
+                    <!-- STAGE203解答入力セクション　ここから --
                     <div class="answer__container">
                       <div class="answer">
                         <input class="answer__incolumn" type="text" v-model="stage203" placeholder="ここに答えを入力しよう">
@@ -157,17 +202,17 @@
                       <p v-if="stage203Message === okMessage" class="err-message">{{ stage203Message }}</p>
                       <a class="link-hint" href="hint.html#stage2" target="hint">ヒントをみる ></a>
                     </div>
-                    <!-- STAGE203解答入力セクション　ここまで -->
+                    <!-- STAGE203解答入力セクション　ここまで --
                   </div>
-                  <!-- STAGE203　下左　ここまで -->
-                  <!-- STAGE204　下右　ここから -->
+                  <!-- STAGE203　下左　ここまで --
+                  <!-- STAGE204　下右　ここから --
                   <div class="col-2">
-                    <!-- STAGE204問題セクション　ここから -->
+                    <!-- STAGE204問題セクション　ここから --
                     <figure class="image__container">
                       <img src="assets/images/stage.png" alt="">
                     </figure>
-                    <!-- STAGE204問題セクション　ここまで -->
-                    <!-- STAGE204解答入力セクション　ここから -->
+                    <!-- STAGE204問題セクション　ここまで --
+                    <!-- STAGE204解答入力セクション　ここから --
                     <div class="answer__container">
                       <div class="answer">
                         <input class="answer__incolumn" type="text" v-model="stage204" placeholder="ここに答えを入力しよう">
@@ -177,15 +222,15 @@
                       <p v-if="stage204Message === okMessage" class="err-message">{{ stage204Message }}</p>
                       <a class="link-hint" href="hint.html#stage2" target="hint">ヒントをみる ></a>
                     </div>
-                    <!-- STAGE204解答入力セクション　ここまで -->
+                    <!-- STAGE204解答入力セクション　ここまで --
                   </div>
-                  <!-- STAGE204　下右　ここまで -->
+                  <!-- STAGE204　下右　ここまで --
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <!-- STAGE2クリア画面　ここから -->
+        <!-- STAGE2クリア画面　ここから --
         <section v-if="stage201Answer && stage202Answer && stage203Answer && stage204Answer" v-bind:class="{isClear:stage201Answer && stage202Answer && stage203Answer && stage204Answer}" class="section section--clear bg-color--gray">
           <div class="container">
             <div class="clear-message">
@@ -196,24 +241,29 @@
             </div>
           </div>
         </section>
-        <!-- STAGE2クリア画面　ここまで -->
+        <!-- STAGE2クリア画面　ここまで --
       </div>
-      <!-- STAGE2　ここまで -->
+      <!-- STAGE2だったもの　ここまで -->
       <!-- STAGE3　ここから -->
       <div v-if="stage2Clear" id="sectionStage3" class="stage">
         <!-- STAGE3問題セクション　ここから -->
         <section class="section">
           <div class="container">
             <h2 class="section-title section-title--keycolorlight"><span class="section-title__stage">STAGE：3</span>家庭科室の課題とは</h2>
-            <p class="text-center">黒板から得たメッセージは、「食物の廃棄問題」だった。<br>
-              どうやら、廃棄にかかる費用がかかりすぎて小学校の運営が厳しくなったようだ。。<br>
-              これらを解決するための最後の謎を解いていこう！</p>
+            <p class="text-center">オフィスにたどり着いた潜入員。<br>
+              しかし、情報がはいっているUSBを手に取ったその瞬間、警報音が鳴り、ガスが流れてきた。<br>
+              USBを持ったまま、急いで部屋から脱出したが、その後胸が締め付けられるような痛みを覚えた。<br>
+              どうやらあのガスのせいらしい。<br>
+              今にも気を失いそうなので、どうにかして解毒剤を手に入れなければならない。<br>
+              そこで仲間を医務室に向かわせた。
+            </p>
             <figure class="image__container">
               <img src="assets/images/stage.png" alt="">
             </figure>
             <figure class="image__container">
               <img src="assets/images/stage.png" alt="">
             </figure>
+            <p class="text-center">どうやら解毒薬を調合する必要がありそうだ…。</p>
           </div>
         </section>
         <!-- STAGE3問題セクション　ここまで -->
