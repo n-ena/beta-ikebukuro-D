@@ -61,8 +61,8 @@ const StageApp = Vue.createApp({
         this.stage1Answer = true;
         this.stage1Message = '';
       } else {
-        this.stage3Answer = false;
-        this.stage3Message = this.ngMessage;
+        this.stage1Answer = false;
+        this.stage1Message = this.ngMessage;
       }
     },
     /* stage1のクリア画面の動作を設定します */
