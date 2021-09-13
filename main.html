@@ -57,10 +57,10 @@
         <section class="section bg-color--keycolor">
           <div class="container">
             <div class="answer">
-              <input type="number" v-model="stage101" placeholder="①" min="1" max="5"> の <input type="number" v-model="stage102" placeholder="②" min="1" max="5"> は <input type="number" v-model="stage103" placeholder="③" min="1" max="5"> である。
+              <input type="text" v-model="stage101" placeholder="①"> の <input type="text" v-model="stage102" placeholder="②"> は <input type="text" v-model="stage103" placeholder="③"> である。
             </div>
             <div class="answer">
-              <input type="number" v-model="stage104" placeholder="④" min="1" max="5"> することで <input type="number" v-model="stage105" placeholder="⑤" min="1" max="5"> をすることができる！
+              <input type="text" v-model="stage104" placeholder="④"> することで <input type="text" v-model="stage105" placeholder="⑤"> をすることができる！
             </div>
             <p class="err-message">{{ stage1Message }}</p>
             <button v-on:click="stage1AnswerInput(stage101, stage102, stage103, stage104, stage105)">送信</button>
