@@ -435,12 +435,12 @@ button {
 * main
 ********************/
 .top-image {
-  background-image: url("../images/top-image.png");
+  background-image: url("../images/タイトル.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 300px;
+  padding-bottom: 300px;
 }
 
 .main-title__wrapper {
