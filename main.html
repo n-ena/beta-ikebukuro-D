@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>封鎖された家庭科室からの脱出 │ Project N</title>
+  <title>テロ組織への潜入 │ Project N</title>
   <link rel="stylesheet" href="assets/css/normalize.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -24,10 +24,12 @@
   <main class="main main-page">
     <!-- タイトルエリア　ここから -->
     <div class="top-image">
+      <!--
       <div class="main-title__wrapper">
         <h1 class="main-title">封鎖<span class="main-title--kana">された</span><br>家庭科室<span class="main-title--kana">からの</span>脱出</h1>
         <div class="main-title main-title--shadow">封鎖<span class="main-title--kana">された</span><br>家庭科室<span class="main-title--kana">からの</span>脱出</div>
       </div>
+      -->
     </div>
     <!-- タイトルエリア　ここまで -->
     <div id="stage">
@@ -38,18 +40,33 @@
           <div class="container">
             <h2 class="section-title section-title--keycolorlight"><span class="section-title__stage">STAGE：1</span>さぁゲームを始めよう！</h2>
             <p class="text-center">仲間がテロ組織のアジトの前に辿り着いたようだ。<br>
-              潜入しようとするも5色の鍵がかかっている。<br>
-              また、近くには5つのボタンがある。<br>
+              潜入しようとするも5色の鍵がかかっている。
+            </p>
+            <figure class="image__container">
+              <img src="assets/images/.png" alt="">
+            </figure>
+            <p class="text-center">また、近くには5つのボタンがある。<br>
               扉はボタンを正しい順番で押すことで全ての鍵が解除できるようだ。
             </p>
+            <figure class="image__container">
+              <img src="assets/images/38.jpg" alt="5色の鍵">
+            </figure>
+            <figure class="image__container">
+              <img src="assets/images/39.jpg" alt="">
+            </figure>
+            <figure class="image__container">
+              <img src="assets/images/40.jpg" alt="">
+            </figure>
+            <figure class="image__container">
+              <img src="assets/images/41.jpg" alt="">
+            </figure>
+            <figure class="image__container">
+              <img src="assets/images/43.jpg" alt="">
+            </figure>
+            <figure class="image__container">
+              <img src="assets/images/42.jpg" alt="">
+            </figure>
             <p class="text-center">困ったときは、ヒントがある。なるべく見ないようにゲームを進めていこう。</p>
-            <div class="youtube__container">
-              <!-- YouTube貼り付け
-              <div class="youtube">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/IRyJe-0Uie0?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
-              YouTube貼り付け -->
-            </div>
           </div>
         </section>
         <!-- STAGE1問題セクション　ここまで -->
@@ -57,10 +74,11 @@
         <section class="section bg-color--keycolor">
           <div class="container">
             <div class="answer">
-              <input type="text" v-model="stage101" placeholder="①"> の <input type="text" v-model="stage102" placeholder="②"> は <input type="text" v-model="stage103" placeholder="③"> である。
-            </div>
-            <div class="answer">
-              <input type="text" v-model="stage104" placeholder="④"> することで <input type="text" v-model="stage105" placeholder="⑤"> をすることができる！
+              <input type="text" v-model="stage101" placeholder="1番目"> →
+              <input type="text" v-model="stage102" placeholder="2番目"> →
+              <input type="text" v-model="stage103" placeholder="3番目"> →
+              <input type="text" v-model="stage104" placeholder="4番目"> →
+              <input type="text" v-model="stage105" placeholder="5番目">
             </div>
             <p class="err-message">{{ stage1Message }}</p>
             <button v-on:click="stage1AnswerInput(stage101, stage102, stage103, stage104, stage105)">送信</button>
@@ -92,7 +110,18 @@
               車庫と倉庫の場所しかわからなかった。<br>
               事前情報により、これらのことがわかっている。
             </p>
-            <!-- ul + li で情報渡せばいいんじゃない -->
+            <div class="story__note__outer bg-color--gray">
+              <ul class="story__note">
+                <li>サーバールームは車庫とのみ隣り合っている</li>
+                <li>車庫と宝物庫の間にオフィスと研究室がある</li>
+                <li>倉庫は食堂の隣にある</li>
+                <li>医務室は研究室の向かいにある</li>
+                <li>休憩室は修理室と隣り合っていない</li>
+              </ul>
+            </div>
+            <figure class="image__container">
+              <img src="assets/images/地図数字.png" alt="地図">
+            </figure>
             <p class="text-center">困ったときは、ヒントがある。なるべく見ないようにゲームを進めていこう。</p>
           </div>
         </section>
@@ -100,9 +129,9 @@
         <!-- STAGE2解答入力セクション　ここから -->
         <section class="section bg-color--keycolor">
           <div class="container">
-            <h2 class="section-title"><span class="section-title__stage">STAGE：2</span>キーワードを入力</h2>
+            <h2 class="section-title"><span class="section-title__stage">STAGE：2</span>オフィスの場所は？</h2>
             <div class="answer">
-              <input class="answer__1word" type="text" v-model="stage2" placeholder="ROOM?">
+              <input class="answer__1word" type="text" v-model="stage2" placeholder="部屋の番号">
             </div>
             <p class="err-message">{{ stage2Message }}</p>
             <button v-on:click="stage2AnswerInput(stage2)">送信</button>
@@ -126,7 +155,7 @@
         <!-- STAGE2クリア画面　ここまで -->
       </div>
       <!-- STAGE2　ここまで -->
-      <!-- STAGE3　ここから -->
+      <!-- STAGE3 解毒 ここから -->
       <div v-if="stage2Clear" id="sectionStage3" class="stage">
         <!-- STAGE3問題セクション　ここから -->
         <section class="section">
@@ -140,12 +169,12 @@
               そこで仲間を医務室に向かわせた。
             </p>
             <figure class="image__container">
-              <img src="assets/images/stage.png" alt="">
+              <img src="assets/images/解毒剤1.png" alt="">
             </figure>
             <figure class="image__container">
-              <img src="assets/images/stage.png" alt="">
+              <img src="assets/images/解毒剤2.png" alt="">
             </figure>
-            <p class="text-center">どうやら解毒薬を調合する必要がありそうだ…。</p>
+            <p class="text-center">どうやら解毒剤を調合する必要がありそうだ…。</p>
           </div>
         </section>
         <!-- STAGE3問題セクション　ここまで -->
@@ -153,19 +182,56 @@
         <section class="section bg-color--keycolor">
           <div class="container">
             <div class="answer">
-              <input type="text" v-model="stage301" placeholder="①を入力"> の <input type="text" v-model="stage302" placeholder="②を入力"> は <input type="text" v-model="stage303" placeholder="③を入力"> である。
-            </div>
-            <div class="answer">
-              <input type="text" v-model="stage304" placeholder="④を入力"> することで <input type="text" v-model="stage305" placeholder="⑤を入力"> を <input type="text" v-model="stage306" placeholder="⑥を入力"> することができる！
+              <input type="text" v-model="stage301" placeholder="1つめの薬品の漢字"> と <input type="text" v-model="stage302" placeholder="2つめの薬品の漢字">
             </div>
             <p class="err-message">{{ stage3Message }}</p>
-            <button v-on:click="stage3AnswerInput(stage301, stage302, stage303, stage304, stage305, stage306)">送信</button>
+            <button v-on:click="stage3AnswerInput(stage301, stage302)">送信</button>
             <a class="link-hint" href="hint.html#stage3" target="hint">ヒントをみる ></a>　
           </div>
         </section>
         <!-- STAGE3解答入力セクション　ここまで -->
+        <!-- STAGE3クリア画面　ここから -->
+        <section v-if="stage3Answer" v-bind:class="{isClear:stage3Answer}" class="section section--clear bg-color--gray">
+          <div class="container">
+            <div class="clear-message">
+              <div class="clear-message__title">STAGE：3  クリア！</div>
+              <div class="clear-message__content">
+              </div>
+              <button v-on:click="stage3NextStage" onclick="location.href='#sectionStage4'" class="clear-message__btn btn">次のステージへ<svg class="btn__arrow"><use xlink:href="#arrow"></use></svg></button>
+            </div>
+          </div>
+        </section>
+        <!-- STAGE3クリア画面　ここまで -->
       </div>
       <!-- STAGE3　ここまで -->
+      <!-- STAGE4 脱出 ここから -->
+      <div v-if="stage3Clear" id="sectionStage4" class="stage">
+        <!-- STAGE4問題セクション　ここから -->
+        <section class="section">
+          <div class="container">
+            <h2 class="section-title section-title--keycolorlight"><span class="section-title__stage">STAGE：4</span>さぁゲームを始めよう！</h2>
+            <p class="text-center">
+            </p>
+            <p class="text-center">困ったときは、ヒントがある。なるべく見ないようにゲームを進めていこう。</p>
+          </div>
+        </section>
+        <!-- STAGE4問題セクション　ここまで -->
+        <!-- STAGE4解答入力セクション　ここから -->
+        <section class="section bg-color--keycolor">
+          <div class="container">
+            <h2 class="section-title"><span class="section-title__stage">STAGE：4</span>キーワードを入力</h2>
+            <div class="answer">
+              <input class="answer__1word" type="text" v-model="stage4" placeholder="未定のためpasswordと入力してください">
+            </div>
+            <p class="err-message">{{ stage4Message }}</p>
+            <button v-on:click="stage4AnswerInput(stage4)">送信</button>
+            <img src="???" alt="謎">
+            <a class="link-hint" href="hint.html#stage4" target="hint">ヒントをみる ></a>
+          </div>
+        </section>
+        <!-- STAGE4解答入力セクション　ここまで -->
+      </div>
+      <!-- STAGE4  ここまで -->
     </div>
   </main>
   <footer class="footer section bg-color--gray">
