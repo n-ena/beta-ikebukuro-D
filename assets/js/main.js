@@ -13,7 +13,8 @@ const StageApp = Vue.createApp({
       stage2CorrectAnswer: '7',
       stage301CorrectAnswer: '花',
       stage302CorrectAnswer: '森',
-      stage4CorrectAnswer: 'password',
+      stage4CorrectAnswer: '2',
+      stage5CorrectAnswer: 'password',
       /* stage1 */
       stage1Answer: false, // 正解かどうか
       stage101: '',        // インプットエリアの入力の値
@@ -39,6 +40,11 @@ const StageApp = Vue.createApp({
       stage4: '',          // インプットエリアの入力の値
       stage4Message: '',   // 送信ボタン上下に表示されるメッセージ
       stage4Clear: false,  // ステージクリア
+      /* stage5 */
+      stage5Answer: false, // 正解かどうか
+      stage5: '',          // インプットエリアの入力の値
+      stage5Message: '',   // 送信ボタン上下に表示されるメッセージ
+      stage5Clear: false,  // ステージクリア
     }
   },
   methods: {
@@ -100,10 +106,26 @@ const StageApp = Vue.createApp({
         ) {
         this.stage4Answer = true;
         this.stage4Message = '';
-        window.location.href = 'final.html';
       } else {
         this.stage4Answer = false;
         this.stage4Message = this.ngMessage;
+      }
+    },
+    /* stage4のクリア画面の動作を設定します */
+    stage4NextStage() {
+      this.stage4Answer = false;
+      this.stage4Clear = true;
+    },
+     /* stage5の入力を判定します */
+    stage5AnswerInput(stage5) {
+      if(stage5 === this.stage4CorrectAnswer
+        ) {
+        this.stage5Answer = true;
+        this.stage5Message = '';
+        window.location.href = 'final.html';
+      } else {
+        this.stage5Answer = false;
+        this.stage5Message = this.ngMessage;
       }
     },    
   }
